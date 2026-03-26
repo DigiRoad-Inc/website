@@ -83,14 +83,14 @@ serve(async (req) => {
       .map(([k, v]) => `<tr><td style="padding:6px 12px;font-weight:600;color:#064e3b;white-space:nowrap">${k.replace(/_/g," ")}</td><td style="padding:6px 12px;color:#334155">${Array.isArray(v) ? v.join(", ") : v ?? "—"}</td></tr>`)
       .join("");
 
-    await fetch("https://api.resend.com/emails", {
+    const resendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${resendKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "DigiRoad <onboarding@resend.dev>",
+        from: "DigiRoad <no-reply@digiroad.co>",
         to: [notifyEmail],
         subject: `New ${labelMap[type as string] ?? type} from ${senderName} (${senderEmail})`,
         html: `
@@ -109,6 +109,10 @@ serve(async (req) => {
           </div>`,
       }),
     });
+    if (!resendRes.ok) {
+      const resendErr = await resendRes.text();
+      console.error("Resend error:", resendRes.status, resendErr);
+    }
   }
   /* ───────────────────────────────────────────────────────────────────── */
 
