@@ -1,19 +1,18 @@
 {
   "hosting": {
+    "site": "digiroad-website",
     "public": ".",
     "ignore": [
       "firebase.json",
+      ".firebaserc",
+      ".git/**",
+      ".gitignore",
       "**/.*",
       "**/node_modules/**",
       "supabase/**",
       "vite.config.*",
-      "package*.json"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+      "package*.json",
+      "dist/**"
     ],
     "headers": [
       {
