@@ -452,7 +452,7 @@ img, svg { display: block; }
 }
 .mobile-item:hover { background: rgba(16, 185, 129, 0.07); color: #111827; }
 
-.mobile-cta { margin-top: 10px; align-self: flex-start; }
+.mobile-cta { margin-top: 10px; width: 100%; text-align: center; justify-content: center; }
 
 /* ══════════════════════════════════
    RESPONSIVE
