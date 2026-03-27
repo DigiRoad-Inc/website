@@ -21,3 +21,4 @@ supabase/.temp/
 .vscode/settings.json
 .idea/
 *.swp
+.vercel
