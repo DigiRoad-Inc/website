@@ -1463,7 +1463,8 @@ img, svg { display: block; }
 }
 
 @media (max-width: 680px) {
-  .hero-h1            { font-size: 52px; overflow-wrap: break-word; word-break: break-word; }
+  .hero-h1            { font-size: clamp(36px, 12vw, 52px); overflow-wrap: break-word; word-break: break-word; }
+  .hero-h1 span       { white-space: normal; }
   .section-h2         { font-size: 28px; }
   .security-h2        { font-size: 28px; }
   .cta-h2             { font-size: 28px; }
@@ -1477,7 +1478,7 @@ img, svg { display: block; }
 }
 
 @media (max-width: 400px) {
-  .hero-h1 { font-size: 44px; }
+  .hero-h1 { font-size: clamp(32px, 10vw, 44px); }
 }
 
 
