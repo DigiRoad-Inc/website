@@ -1507,10 +1507,10 @@ img, svg { display: block; }
 
 .footer-legal-link {
   font-size: 13px;
-  color: var(--green-light);
-  opacity: 0.5;
+  color: var(--white);
   text-decoration: none;
   transition: opacity 0.15s;
+  opacity: 0.75;
 }
 
 .footer-legal-link:hover {
@@ -1518,14 +1518,8 @@ img, svg { display: block; }
 }
 
 .footer-legal-sep {
-  color: var(--green-light);
-  opacity: 0.2;
+  color: var(--white);
+  opacity: 0.3;
   font-size: 13px;
 }
 
-@media (max-width: 680px) {
-  .footer-legal {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
