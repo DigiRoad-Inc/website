@@ -161,7 +161,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 20px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.28s ease;
@@ -182,9 +182,10 @@
         0 8px 24px rgba(0,0,0,0.3),
         0 32px 64px rgba(0,0,0,0.25);
       width: 100%;
-      max-width: 420px;
-      max-height: 88vh;
+      max-width: 460px;
+      max-height: calc(100vh - 40px);
       overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
       transform: translateY(16px) scale(0.98);
@@ -196,7 +197,7 @@
 
     /* Modal header */
     .dr-modal-head {
-      padding: 28px 24px 20px;
+      padding: 24px 24px 18px;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -204,19 +205,19 @@
       border-bottom: 1px solid rgba(209,250,229,0.07);
     }
     .dr-modal-head h2 {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: #f0fdf4;
       letter-spacing: -0.025em;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .dr-modal-head p {
-      font-size: 12px;
+      font-size: 12.5px;
       color: rgba(209,250,229,0.45);
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .dr-x {
-      width: 28px; height: 28px;
+      width: 30px; height: 30px;
       border-radius: 7px;
       background: rgba(209,250,229,0.06);
       border: 1px solid rgba(209,250,229,0.08);
@@ -231,14 +232,14 @@
     .dr-x:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(16,185,129,0.35); }
 
     /* Categories */
-    .dr-cats { padding: 16px 20px 10px; display: flex; flex-direction: column; gap: 8px; }
+    .dr-cats { padding: 14px 16px 10px; display: flex; flex-direction: column; gap: 8px; }
 
     .dr-cat {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 15px 16px;
-      border-radius: 11px;
+      padding: 14px 16px;
+      border-radius: 10px;
       border: 1px solid rgba(209,250,229,0.06);
       background: rgba(209,250,229,0.03);
       transition: border-color 0.2s, background 0.2s;
@@ -315,16 +316,18 @@
 
     /* Modal footer */
     .dr-modal-foot {
-      padding: 16px 20px 24px;
+      padding: 14px 16px 20px;
       display: flex;
       gap: 8px;
       border-top: 1px solid rgba(209,250,229,0.07);
+      flex-shrink: 0;
     }
     .dr-modal-foot .dr-btn {
       flex: 1;
-      padding: 12px 16px;
-      font-size: 13px;
+      padding: 12px 10px;
+      font-size: 12.5px;
       border-radius: 7px;
+      white-space: nowrap;
     }
     /* Re-style for modal context */
     .dr-modal-foot .dr-btn-reject {
