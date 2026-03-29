@@ -304,20 +304,19 @@
 
     /* ── Save preferences ───────────────────────────────────── */
     function savePrefs(overrides) {
-      const prefs = overrides || {
+      const prefs = {
         essential:   true,
-        analytics:   document.getElementById('tog-analytics').checked,
-        performance: document.getElementById('tog-performance').checked,
-        marketing:   document.getElementById('tog-marketing').checked,
+        analytics:   overrides ? !!overrides.analytics   : document.getElementById('tog-analytics').checked,
+        performance: overrides ? !!overrides.performance : document.getElementById('tog-performance').checked,
+        marketing:   overrides ? !!overrides.marketing   : document.getElementById('tog-marketing').checked,
+        ts: Date.now(),
+        v:  1,
       };
-      prefs.ts = Date.now();
-      prefs.v  = 1;
       localStorage.setItem(KEY, JSON.stringify(prefs));
-      if (!overrides) return;
-      // Apply override state to toggles
+      // Sync toggles to saved state
       ['analytics', 'performance', 'marketing'].forEach(k => {
         const el = document.getElementById('tog-' + k);
-        if (el) el.checked = !!prefs[k];
+        if (el) el.checked = prefs[k];
       });
       updateRowHighlights();
     }
