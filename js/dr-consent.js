@@ -100,7 +100,7 @@
 
     .dr-manage {
       display: inline-flex;
-      margin-top: 12px;
+      margin-top: 20px;
       font-size: 14px;
       font-weight: 500;
       color: #15803d;
@@ -120,7 +120,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 32px;
     }
 
     .dr-btn {
