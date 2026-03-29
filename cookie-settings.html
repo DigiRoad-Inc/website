@@ -198,20 +198,6 @@
     </div>
   </main>
 
-  <!-- ══ STICKY ACTION BAR ══════════════════════════════════════ -->
-  <div class="cs-actionbar" id="csActionBar" role="region" aria-label="Save cookie preferences">
-    <div class="cs-actionbar-inner">
-      <div class="cs-actionbar-status" id="csStatus" aria-live="polite">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <span id="csStatusText"></span>
-      </div>
-      <div class="cs-actionbar-btns">
-        <button class="cs-btn cs-btn-reject" id="csReject">Reject non-essential</button>
-        <button class="cs-btn cs-btn-save"   id="csSave">Save preferences</button>
-        <button class="cs-btn cs-btn-accept" id="csAccept">Accept all</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ══ FOOTER ════════════════════════════════════════════════ -->
   <footer class="footer">
@@ -321,14 +307,6 @@
       updateRowHighlights();
     }
 
-    function showStatus(msg) {
-      const el  = document.getElementById('csStatus');
-      const txt = document.getElementById('csStatusText');
-      txt.textContent = msg;
-      el.classList.add('cs-status-show');
-      setTimeout(() => el.classList.remove('cs-status-show'), 3500);
-    }
-
     /* ── Expand / collapse ──────────────────────────────────── */
     document.querySelectorAll('.cs-expand-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -350,24 +328,7 @@
       if (tog) tog.addEventListener('change', () => {
         updateRowHighlights();
         savePrefs();
-        showStatus('Preferences saved');
       });
-    });
-
-    /* ── Action buttons ─────────────────────────────────────── */
-    document.getElementById('csAccept').addEventListener('click', () => {
-      savePrefs({ essential: true, analytics: true, performance: true, marketing: true });
-      showStatus('All cookies accepted');
-    });
-
-    document.getElementById('csReject').addEventListener('click', () => {
-      savePrefs({ essential: true, analytics: false, performance: false, marketing: false });
-      showStatus('Non-essential cookies rejected');
-    });
-
-    document.getElementById('csSave').addEventListener('click', () => {
-      savePrefs();
-      showStatus('Preferences saved');
     });
 
     /* ── Init ───────────────────────────────────────────────── */
