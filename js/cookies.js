@@ -36,10 +36,10 @@
         0 2px 4px rgba(0,0,0,0.04),
         0 8px 24px rgba(0,0,0,0.09),
         0 24px 48px rgba(0,0,0,0.06);
-      padding: 18px 20px 18px 22px;
+      padding: 20px 24px 20px 24px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
       transition: opacity 0.38s ease, transform 0.48s cubic-bezier(0.34, 1.2, 0.64, 1);
       will-change: transform, opacity;
     }
@@ -100,8 +100,8 @@
     .dr-btn {
       font-size: 12.5px;
       font-weight: 600;
-      border-radius: 8px;
-      padding: 8.5px 16px;
+      border-radius: 7px;
+      padding: 9px 20px;
       cursor: pointer;
       border: none;
       line-height: 1;
