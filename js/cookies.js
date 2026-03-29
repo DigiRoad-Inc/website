@@ -29,66 +29,75 @@
       position: fixed;
       bottom: 28px;
       left: 50%;
-      transform: translateX(-50%) translateY(20px);
+      transform: translateX(-50%) translateY(24px);
       opacity: 0;
       z-index: 99998;
       width: calc(100vw - 48px);
       max-width: 440px;
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(48px) saturate(200%);
-      -webkit-backdrop-filter: blur(48px) saturate(200%);
-      border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.82) 0%, rgba(246,249,252,0.76) 100%);
+      backdrop-filter: blur(72px) saturate(240%) brightness(1.02);
+      -webkit-backdrop-filter: blur(72px) saturate(240%) brightness(1.02);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+      border-radius: 22px;
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.06),
-        0 12px 40px rgba(0, 0, 0, 0.10),
-        0 32px 72px rgba(0, 0, 0, 0.07);
-      padding: 32px 32px 28px;
-      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.1, 0.64, 1);
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.03) inset,
+        0 2px 4px rgba(0, 0, 0, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.09),
+        0 24px 56px rgba(0, 0, 0, 0.08),
+        0 48px 80px rgba(0, 0, 0, 0.04);
+      padding: 36px 36px 30px;
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.08, 0.64, 1);
     }
     #dr-banner.dr-show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    #dr-banner.dr-hide { opacity: 0; transform: translateX(-50%) translateY(12px); pointer-events: none; }
+    #dr-banner.dr-hide { opacity: 0; transform: translateX(-50%) translateY(14px); pointer-events: none; }
 
     #dr-banner .dr-b-icon {
-      width: 42px;
-      height: 42px;
-      background: #f0faf5;
-      border-radius: 11px;
+      width: 44px;
+      height: 44px;
+      background: rgba(220, 252, 231, 0.85);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #16a34a;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       flex-shrink: 0;
+      box-shadow: 0 0 0 7px rgba(22, 163, 74, 0.07), 0 1px 3px rgba(22,163,74,0.12) inset;
     }
 
     #dr-banner .dr-title {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #0f172a;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       line-height: 1.25;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     #dr-banner .dr-desc {
       font-size: 13.5px;
       color: #64748b;
-      line-height: 1.65;
-      margin-bottom: 22px;
+      line-height: 1.72;
+      margin-bottom: 26px;
     }
 
     #dr-banner .dr-desc a {
       color: #16a34a;
+      font-weight: 500;
       text-decoration: underline;
-      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
       cursor: pointer;
+      transition: color 0.15s;
     }
+    #dr-banner .dr-desc a:hover { color: #15803d; }
 
     #dr-banner .dr-stack {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
 
     /* ══ BUTTONS ════════════════════════════════════════════════════════ */
@@ -102,49 +111,65 @@
       cursor: pointer;
       font-family: inherit;
       font-weight: 600;
-      letter-spacing: -0.01em;
-      border-radius: 10px;
-      transition: all 0.16s ease;
+      letter-spacing: -0.015em;
+      border-radius: 11px;
+      transition: all 0.18s ease;
       white-space: nowrap;
       line-height: 1;
     }
-    .dr-btn:active { transform: scale(0.98); }
+    .dr-btn:active { transform: scale(0.975) !important; }
 
     .dr-btn-accept {
-      background: #16a34a;
+      background: #166534;
       color: #fff;
-      font-size: 14px;
-      padding: 15px 24px;
+      font-size: 14.5px;
+      padding: 16px 28px;
       width: 100%;
-      box-shadow: 0 1px 3px rgba(22, 163, 74, 0.25), 0 4px 14px rgba(22, 163, 74, 0.2);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.12),
+        0 2px 6px rgba(22, 163, 74, 0.22),
+        0 8px 24px rgba(22, 163, 74, 0.28);
     }
-    .dr-btn-accept:hover { background: #15803d; box-shadow: 0 2px 6px rgba(22,163,74,0.3), 0 6px 20px rgba(22,163,74,0.25); }
+    .dr-btn-accept:hover {
+      background: #145f30;
+      transform: translateY(-1px);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.14),
+        0 4px 10px rgba(22,163,74,0.28),
+        0 12px 32px rgba(22,163,74,0.32);
+    }
 
     .dr-btn-reject {
-      background: transparent;
-      color: #475569;
-      font-size: 14px;
-      padding: 14px 24px;
+      background: rgba(255,255,255,0.5);
+      color: #374151;
+      font-size: 14.5px;
+      padding: 16px 28px;
       width: 100%;
-      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(0, 0, 0, 0.11);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
-    .dr-btn-reject:hover { background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.16); }
+    .dr-btn-reject:hover {
+      background: rgba(255,255,255,0.75);
+      border-color: rgba(0, 0, 0, 0.18);
+      color: #1f2937;
+    }
 
     #dr-banner .dr-ghost {
       background: none;
       border: none;
       cursor: pointer;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
-      color: #94a3b8;
+      color: #9ca3af;
       text-align: center;
       width: 100%;
-      padding: 6px 0 0;
+      padding: 10px 0 0;
       display: block;
       transition: color 0.15s;
     }
-    #dr-banner .dr-ghost:hover { color: #64748b; }
+    #dr-banner .dr-ghost:hover { color: #6b7280; }
 
     /* ══ OVERLAY ════════════════════════════════════════════════════════ */
     #dr-overlay {
@@ -166,23 +191,27 @@
 
     /* ══ MODAL ══════════════════════════════════════════════════════════ */
     .dr-modal {
-      background: rgba(255, 255, 255, 0.99);
-      backdrop-filter: blur(60px) saturate(200%);
-      -webkit-backdrop-filter: blur(60px) saturate(200%);
-      border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 24px;
+      background: linear-gradient(170deg, rgba(255,255,255,0.98) 0%, rgba(248,250,253,0.96) 100%);
+      backdrop-filter: blur(80px) saturate(240%) brightness(1.01);
+      -webkit-backdrop-filter: blur(80px) saturate(240%) brightness(1.01);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+      border-radius: 26px;
       box-shadow:
-        0 4px 16px rgba(0, 0, 0, 0.08),
-        0 20px 60px rgba(0, 0, 0, 0.14),
-        0 48px 100px rgba(0, 0, 0, 0.08);
+        0 1px 0 rgba(255, 255, 255, 1) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.03) inset,
+        0 4px 12px rgba(0, 0, 0, 0.07),
+        0 16px 48px rgba(0, 0, 0, 0.13),
+        0 40px 80px rgba(0, 0, 0, 0.08),
+        0 80px 120px rgba(0, 0, 0, 0.04);
       width: 100%;
       max-width: 560px;
       max-height: calc(100dvh - 48px);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transform: translateY(12px) scale(0.99);
-      transition: transform 0.35s cubic-bezier(0.34, 1.1, 0.64, 1);
+      transform: translateY(14px) scale(0.985);
+      transition: transform 0.38s cubic-bezier(0.34, 1.08, 0.64, 1);
     }
     #dr-overlay.dr-show .dr-modal { transform: translateY(0) scale(1); }
 
@@ -203,7 +232,7 @@
     .dr-modal-head-icon {
       width: 44px;
       height: 44px;
-      background: #f0faf5;
+      background: rgba(220, 252, 231, 0.85);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -211,6 +240,7 @@
       color: #16a34a;
       flex-shrink: 0;
       margin-top: 1px;
+      box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.06), 0 1px 3px rgba(22,163,74,0.1) inset;
     }
 
     .dr-modal-head-text { flex: 1; min-width: 0; }
@@ -272,16 +302,20 @@
       gap: 16px;
       padding: 20px 22px;
       border-radius: 14px;
-      border: 1.5px solid rgba(0, 0, 0, 0.06);
-      background: rgba(248, 250, 252, 0.7);
-      transition: border-color 0.18s, background 0.18s;
+      border: 1.5px solid rgba(0, 0, 0, 0.065);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
     }
     .dr-cat.dr-on {
-      border-color: rgba(22, 163, 74, 0.22);
-      background: rgba(240, 250, 245, 0.7);
+      border-color: rgba(22, 163, 74, 0.24);
+      background: rgba(240, 253, 244, 0.65);
+      box-shadow: 0 1px 3px rgba(22,163,74,0.06);
     }
-    .dr-cat:hover { border-color: rgba(0, 0, 0, 0.1); }
-    .dr-cat.dr-on:hover { border-color: rgba(22, 163, 74, 0.32); }
+    .dr-cat:hover { border-color: rgba(0, 0, 0, 0.11); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    .dr-cat.dr-on:hover { border-color: rgba(22, 163, 74, 0.34); box-shadow: 0 2px 6px rgba(22,163,74,0.08); }
 
     .dr-cat-icon {
       width: 42px;
@@ -373,9 +407,9 @@
     /* Modal Footer — never scrolls */
     .dr-foot {
       flex-shrink: 0;
-      padding: 20px 36px 28px;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      background: rgba(250, 251, 252, 0.8);
+      padding: 20px 36px 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.055);
+      background: linear-gradient(to bottom, rgba(248,250,252,0.6), rgba(245,247,250,0.8));
     }
 
     .dr-foot-btns {
@@ -388,59 +422,74 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 12px;
-      border-radius: 10px;
+      padding: 15px 14px;
+      border-radius: 11px;
       font-size: 13.5px;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
       cursor: pointer;
       outline: none;
       font-family: inherit;
       white-space: nowrap;
       line-height: 1;
-      transition: all 0.16s ease;
+      transition: all 0.18s ease;
       border: none;
     }
-    .dr-foot-btn:active { transform: scale(0.98); }
+    .dr-foot-btn:active { transform: scale(0.975); }
 
     .dr-foot-reject {
-      background: transparent;
+      background: rgba(255,255,255,0.55);
       color: #475569;
-      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
-    .dr-foot-reject:hover { background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.16); }
+    .dr-foot-reject:hover { background: rgba(255,255,255,0.8); border-color: rgba(0, 0, 0, 0.16); color: #374151; }
 
     .dr-foot-save {
-      background: rgba(0, 0, 0, 0.04);
+      background: rgba(255,255,255,0.55);
       color: #334155;
-      border: 1.5px solid rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
-    .dr-foot-save:hover { background: rgba(0, 0, 0, 0.08); border-color: rgba(0, 0, 0, 0.14); }
+    .dr-foot-save:hover { background: rgba(255,255,255,0.8); border-color: rgba(0, 0, 0, 0.14); color: #1e293b; }
 
     .dr-foot-accept {
-      background: #16a34a;
+      background: #166534;
       color: #fff;
-      border: 1.5px solid transparent;
-      box-shadow: 0 1px 3px rgba(22, 163, 74, 0.25), 0 4px 12px rgba(22, 163, 74, 0.18);
+      border: 2px solid transparent;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.1),
+        0 2px 6px rgba(22, 163, 74, 0.22),
+        0 6px 20px rgba(22, 163, 74, 0.25);
     }
-    .dr-foot-accept:hover { background: #15803d; box-shadow: 0 2px 6px rgba(22,163,74,0.3), 0 6px 18px rgba(22,163,74,0.22); }
+    .dr-foot-accept:hover {
+      background: #145f30;
+      transform: translateY(-1px);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.12),
+        0 4px 10px rgba(22,163,74,0.28),
+        0 10px 28px rgba(22,163,74,0.3);
+    }
 
     /* ══ MOBILE ═════════════════════════════════════════════════════════ */
     @media (max-width: 540px) {
       #dr-banner {
         bottom: 16px;
         width: calc(100vw - 28px);
-        padding: 28px 24px 24px;
+        padding: 30px 26px 26px;
+        border-radius: 20px;
       }
       #dr-overlay { padding: 16px; }
-      .dr-modal { border-radius: 20px; max-height: calc(100dvh - 32px); }
-      .dr-modal-head { padding: 28px 24px 22px; }
-      .dr-body { padding: 20px 24px 16px; gap: 10px; }
-      .dr-cat { padding: 18px; gap: 14px; }
+      .dr-modal { border-radius: 22px; max-height: calc(100dvh - 32px); }
+      .dr-modal-head { padding: 28px 26px 22px; }
+      .dr-body { padding: 20px 26px 16px; gap: 10px; }
+      .dr-cat { padding: 18px 18px; gap: 14px; }
       .dr-cat-icon { width: 38px; height: 38px; }
-      .dr-foot { padding: 16px 24px 28px; }
+      .dr-foot { padding: 16px 26px 28px; }
       .dr-foot-btns { gap: 8px; }
-      .dr-foot-btn { padding: 14px 10px; font-size: 12.5px; }
+      .dr-foot-btn { padding: 15px 10px; font-size: 13px; }
     }
 
     @media (max-width: 380px) {
