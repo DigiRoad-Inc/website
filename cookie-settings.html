@@ -344,10 +344,14 @@
       });
     });
 
-    /* ── Toggle row highlights live ────────────────────────── */
+    /* ── Toggle row highlights + auto-save ─────────────────── */
     ['analytics', 'performance', 'marketing'].forEach(id => {
       const tog = document.getElementById('tog-' + id);
-      if (tog) tog.addEventListener('change', updateRowHighlights);
+      if (tog) tog.addEventListener('change', () => {
+        updateRowHighlights();
+        savePrefs();
+        showStatus('Preferences saved');
+      });
     });
 
     /* ── Action buttons ─────────────────────────────────────── */

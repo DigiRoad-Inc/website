@@ -3,6 +3,7 @@
 
   const KEY = 'dr_cookie_consent';
   if (localStorage.getItem(KEY)) return;
+  if (location.pathname.includes('cookie-settings')) return;
 
   /* ─── SVG Icons ──────────────────────────────────────────────────────── */
   const SVG = {
