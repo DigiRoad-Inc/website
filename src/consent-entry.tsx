@@ -461,14 +461,14 @@ function CookiePreferences() {
                   <button
                     type="button"
                     onClick={openModal}
-                    className="mt-5 inline-flex text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                    className="mt-6 inline-flex text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
                   >
                     Manage preferences
                   </button>
                 </div>
               </div>
 
-              <div className="mt-9 grid gap-3 sm:grid-cols-3">
+              <div className="mt-11 grid gap-3 sm:grid-cols-3">
                 <button
                   type="button"
                   onClick={acceptAll}
