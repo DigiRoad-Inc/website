@@ -155,38 +155,42 @@ function CategoryCard({
   onChange?: (checked: boolean) => void
 }) {
   return (
-    <div className="rounded-[28px] border border-white/70 bg-white/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-200 hover:border-white hover:bg-white/78 sm:p-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
+    <div className="rounded-[24px] border border-white/80 bg-white/76 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.055)] backdrop-blur-xl transition duration-200 hover:border-white hover:bg-white/84 sm:rounded-[28px] sm:p-5">
+      <div className="flex items-start gap-3 sm:gap-4">
         <div
-          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ring-1 ${tone} shadow-[0_10px_28px_rgba(148,163,184,0.12)]`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ring-1 ${tone} shadow-[0_10px_28px_rgba(148,163,184,0.12)]`}
         >
           {icon}
         </div>
 
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-900">
-              {title}
-            </h3>
-            {disabled ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
-                <Lock className="h-3.5 w-3.5" strokeWidth={2} />
-                Always on
-              </span>
-            ) : null}
-          </div>
-          <p className="mt-2 max-w-[58ch] text-sm leading-6 text-slate-500 sm:text-[15px]">
-            {description}
-          </p>
-        </div>
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-[17px] font-semibold tracking-[-0.02em] text-slate-900 sm:text-lg">
+                  {title}
+                </h3>
+                {disabled ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
+                    <Lock className="h-3.5 w-3.5" strokeWidth={2} />
+                    Always on
+                  </span>
+                ) : null}
+              </div>
+              <p className="mt-2 max-w-[56ch] text-sm leading-6 text-slate-500 sm:text-[15px]">
+                {description}
+              </p>
+            </div>
 
-        <div className="sm:pt-1">
-          <ConsentToggle
-            checked={checked}
-            disabled={disabled}
-            onChange={onChange}
-            label={`${title} cookies`}
-          />
+            <div className="shrink-0 pt-0.5">
+              <ConsentToggle
+                checked={checked}
+                disabled={disabled}
+                onChange={onChange}
+                label={`${title} cookies`}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -321,41 +325,41 @@ function CookiePreferences() {
                 aria-labelledby="dr-consent-title"
                 aria-describedby="dr-consent-description"
                 className={[
-                  'relative w-full max-w-[760px] overflow-hidden rounded-[32px] border border-white/65',
-                  'bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(248,250,252,0.78))] text-slate-900',
-                  'shadow-[0_32px_90px_rgba(15,23,42,0.22)] backdrop-blur-2xl',
+                  'relative w-full max-w-[720px] overflow-hidden rounded-[30px] border border-white/75',
+                  'bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.88))] text-slate-900',
+                  'shadow-[0_24px_60px_rgba(15,23,42,0.14)] backdrop-blur-2xl',
                   'transition-all duration-200',
                   showModal
                     ? 'translate-y-0 opacity-100 sm:scale-100'
                     : 'translate-y-4 opacity-0 sm:scale-[0.985]',
                 ].join(' ')}
               >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_70%)]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.07),transparent_72%)]" />
 
-                <div className="relative flex max-h-[min(88vh,760px)] flex-col gap-6 overflow-hidden p-5 sm:gap-7 sm:p-7">
-                  <header className="rounded-[28px] border border-white/70 bg-white/62 p-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)] backdrop-blur-xl sm:p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-700 ring-1 ring-emerald-200/80 shadow-[0_10px_28px_rgba(16,185,129,0.12)]">
-                    <ShieldCheck className="h-5 w-5" strokeWidth={2} />
+                <div className="relative flex max-h-[min(88vh,760px)] flex-col gap-4 overflow-hidden p-4 sm:gap-5 sm:p-6">
+                  <header className="rounded-[26px] border border-white/85 bg-white/78 p-4 shadow-[0_12px_32px_rgba(15,23,42,0.05)] backdrop-blur-xl sm:p-5">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-700 ring-1 ring-emerald-200/80 shadow-[0_8px_22px_rgba(16,185,129,0.12)] sm:h-12 sm:w-12">
+                    <ShieldCheck className="h-5 w-5" strokeWidth={1.95} />
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
                         <h2
                           id="dr-consent-title"
-                          className="text-[clamp(1.8rem,3vw,2.4rem)] font-semibold tracking-[-0.04em] text-slate-950"
+                          className="text-[clamp(1.55rem,3vw,2.15rem)] font-semibold tracking-[-0.04em] text-slate-950"
                         >
                           Cookie Preferences
                         </h2>
                         <p
                           id="dr-consent-description"
-                          className="mt-3 max-w-[44ch] text-[15px] leading-7 text-slate-500 sm:text-base"
+                          className="mt-2.5 max-w-[42ch] text-sm leading-6 text-slate-500 sm:text-[15px] sm:leading-7"
                         >
                           Choose which cookies you allow. You can update this at any time.
                         </p>
                         <a
-                          href="/privacy.html#cookies"
+                          href="privacy.html#cookies"
                           className="mt-3 inline-flex text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-800"
                         >
                           Review our Privacy Policy
@@ -367,7 +371,7 @@ function CookiePreferences() {
                         type="button"
                         onClick={closeModal}
                         aria-label="Close cookie preferences"
-                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white/80 text-slate-400 shadow-[0_10px_20px_rgba(15,23,42,0.06)] transition hover:bg-white hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white/85 text-slate-400 shadow-[0_8px_18px_rgba(15,23,42,0.06)] transition hover:bg-white hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
                       >
                         <X className="h-5 w-5" strokeWidth={2.2} />
                       </button>
@@ -376,7 +380,7 @@ function CookiePreferences() {
                 </div>
               </header>
 
-              <section aria-label="Cookie categories" className="flex-1 overflow-y-auto pr-1 space-y-4">
+              <section aria-label="Cookie categories" className="flex-1 overflow-y-auto pr-1 space-y-3 sm:space-y-4">
                 {categories.map((category) => {
                   const checked =
                     category.key === 'essential' ? true : prefs[category.key]
@@ -399,26 +403,26 @@ function CookiePreferences() {
                 })}
               </section>
 
-              <footer className="rounded-[28px] border border-white/70 bg-white/58 p-4 shadow-[0_18px_48px_rgba(15,23,42,0.06)] backdrop-blur-xl sm:p-5">
-                <div className="flex flex-col gap-3 sm:flex-row">
+              <footer className="rounded-[26px] border border-white/80 bg-white/72 p-3.5 shadow-[0_12px_32px_rgba(15,23,42,0.05)] backdrop-blur-xl sm:p-4">
+                <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
                   <button
                     type="button"
                     onClick={rejectAll}
-                    className="min-h-12 flex-1 rounded-2xl border border-slate-300/80 bg-white/72 px-5 py-3 text-base font-semibold text-slate-600 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                    className="min-h-12 flex-1 rounded-2xl border border-slate-300/80 bg-white/84 px-4 py-3 text-[15px] font-semibold text-slate-600 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45 sm:px-5"
                   >
                     Reject all
                   </button>
                   <button
                     type="button"
                     onClick={() => savePrefs(prefs)}
-                    className="min-h-12 flex-1 rounded-2xl border border-slate-200/90 bg-slate-100/90 px-5 py-3 text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                    className="min-h-12 flex-1 rounded-2xl border border-slate-200/90 bg-slate-100/88 px-4 py-3 text-[15px] font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45 sm:px-5"
                   >
                     Save preferences
                   </button>
                   <button
                     type="button"
                     onClick={acceptAll}
-                    className="min-h-12 flex-1 rounded-2xl bg-[#166534] px-5 py-3 text-base font-semibold text-white shadow-[0_18px_32px_rgba(22,101,52,0.28)] transition hover:bg-[#145a2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                    className="min-h-12 flex-1 rounded-2xl bg-[#166534] px-4 py-3 text-[15px] font-semibold text-white shadow-[0_14px_24px_rgba(22,101,52,0.22)] transition hover:bg-[#145a2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45 sm:px-5"
                   >
                     Accept all
                   </button>
