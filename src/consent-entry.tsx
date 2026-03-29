@@ -76,7 +76,16 @@ function readStoredConsent(): ConsentState | null {
 
   try {
     const parsed = JSON.parse(raw)
-    if (parsed.v !== CONSENT_VERSION) return null
+    if (
+      typeof parsed !== 'object' ||
+      parsed === null ||
+      !('analytics' in parsed) ||
+      !('performance' in parsed) ||
+      !('marketing' in parsed)
+    ) {
+      return null
+    }
+
     return {
       essential: true,
       analytics: !!parsed.analytics,
@@ -461,14 +470,14 @@ function CookiePreferences() {
                   <button
                     type="button"
                     onClick={openModal}
-                    className="mt-8 inline-flex text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
+                    className="mt-6 inline-flex text-sm font-medium text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/45"
                   >
                     Manage preferences
                   </button>
                 </div>
               </div>
 
-              <div className="mt-12 grid gap-3 sm:grid-cols-3">
+              <div className="mt-10 grid gap-3 sm:grid-cols-3">
                 <button
                   type="button"
                   onClick={acceptAll}
