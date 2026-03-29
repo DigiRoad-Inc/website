@@ -6,17 +6,7 @@
 
   if (location.pathname.includes('cookie-settings')) return;
 
-  function readStored() {
-    try {
-      const raw = localStorage.getItem(KEY);
-      if (!raw) return null;
-      const p = JSON.parse(raw);
-      if (p.v !== VER) return null;
-      return { essential: true, analytics: !!p.analytics, performance: !!p.performance, marketing: !!p.marketing };
-    } catch { return null; }
-  }
-
-  if (readStored()) return;
+  if (localStorage.getItem(KEY)) return;
 
   function writeStored(prefs) {
     localStorage.setItem(KEY, JSON.stringify({ ts: Date.now(), v: VER, ...prefs }));
